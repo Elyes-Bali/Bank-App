@@ -1,0 +1,20 @@
+.tst{
+  
+    height: 712px;
+    background: #ffffff;
+    background: Orgb(0, 101, 219);
+  background: linear-gradient(
+    45deg,
+    rgb(150, 251, 251) 45%,
+    rgb(247, 243, 243) 60%
+  );
+  
+;
+}
+
+.mrc{
+    text-align: center;
+    font-size: 50px;
+    padding-top: 15%;
+    padding-bottom: 5%;
+}

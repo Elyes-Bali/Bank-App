@@ -1,0 +1,26 @@
+#Reglementation {
+  margin-top: 5% !important;
+    font-weight: bold;
+  }
+
+  .impact{
+    margin-left: 500px;
+  }
+  .encour{
+    margin-left: 60px;
+  }
+  .suiv{
+    text-align: right;
+   margin-left: 600px;
+  }
+  .deta{
+   display: flex;
+   justify-content: space-between;
+    margin: 5px;
+  }
+  .sioui{
+    margin-left: 50px;
+  }
+  .autoro{
+    width: 30% !important;
+  }

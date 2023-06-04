@@ -1,0 +1,39 @@
+ .devide{
+margin-top: -21%;
+    height: 500px;
+    background: #ffffff;
+    background: Orgb(0, 101, 219);
+  background: linear-gradient(
+    180deg,
+    rgb(150, 251, 251) 45%,
+    rgb(255, 255, 255) 60%
+  );
+  
+;
+}
+
+.btt{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.blocs{
+    margin-top: 5%;
+    font-size: 20px !important;
+    
+  
+}
+
+.titre{
+    font-weight: bolder;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 5%;
+}
+
+.sub{
+    font-size: 25px;
+}
+
