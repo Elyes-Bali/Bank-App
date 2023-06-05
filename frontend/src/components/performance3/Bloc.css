@@ -37,3 +37,45 @@ margin-top: -21%;
     font-size: 25px;
 }
 
+.prog4{
+  position: absolute;
+  top: 121%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d9eec;
+   font-size: 30px;
+}
+.prog5{
+  position: absolute;
+  top: 127%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d9eec;
+   font-size: 30px;
+}
+.prog6{
+  position: absolute;
+  top: 167%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d9eec;
+   font-size: 30px;
+}
+.prog7{
+  position: absolute;
+  top: 170%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d9eec;
+   font-size: 30px;
+}
+.prog8{
+  position: absolute;
+  top: 127%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d9eec;
+   font-size: 30px;
+}
+
+

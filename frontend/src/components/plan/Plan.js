@@ -5,9 +5,15 @@ import { useSelector } from "react-redux";
 
 const Plan = () => {
   const forme = useSelector((state) => state.form.form);
+  const quest = useSelector((state) => state.quest.allquest);
   const navigate = useNavigate();
   const hundelUpdate = () => {
-    navigate("/persone");
+    if (quest?.length !== 0) {
+      navigate("/adder");
+    }else{
+      navigate("/persone");
+    }
+
   };
   return (
     <div>

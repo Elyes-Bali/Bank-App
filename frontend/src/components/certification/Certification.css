@@ -26,3 +26,12 @@
  width: 50% !important;
  border: 1px solid black !important;
 }
+
+.prog1{
+  position: absolute;
+  top: 9%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d36ec;
+   font-size: 30px;
+}

@@ -30,6 +30,9 @@ import Synthese from "./components/synthese/Synthese";
 import Personnel from "./components/personnel/Personnel";
 import Plan from "./components/plan/Plan";
 import { getform } from "./redux/FormSlice/formslice";
+import Questinsadd from "./components/dashboard/Questinsadd";
+import { getquest } from "./redux/QuestSlice/questslice";
+import Questions from "./components/myquestios/Questions";
 
 function App() {
   const [ping, setPing] = useState(false);
@@ -41,6 +44,7 @@ function App() {
     if (token) {
       dispatch(currentUser());
       dispatch(getform());
+      dispatch(getquest());
     }
   }, [dispatch]);
 
@@ -68,6 +72,7 @@ function App() {
           <Route path="/sythese" element={<Synthese />} />
           <Route path="/persone" element={<Personnel />} />
           <Route path="/plan" element={<Plan />} />
+          <Route path="/adder" element={<Questions />} />
 
           <Route path="/bloc1" element={<Bloc1 />} />
           <Route path="/bloc2" element={<Bloc2 />} />
@@ -84,6 +89,7 @@ function App() {
         {/* <Route path="/logout" element={<Logout />} /> */}
 
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/quest" element={<Questinsadd />} />
 
         <Route path="/chart" element={<Chartes />} />
       </Routes>

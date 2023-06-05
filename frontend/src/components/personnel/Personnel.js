@@ -4,6 +4,7 @@ import { editform } from "../../redux/FormSlice/formslice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Personnel.css";
 import { Avatar } from "@chakra-ui/react";
+import ProgressBar from "react-customizable-progressbar";
 
 function Personnel() {
   const forme = useSelector((state) => state.form.form);
@@ -17,6 +18,10 @@ function Personnel() {
     poste: "",
   });
   console.log(formulaire2);
+  const progress = 95;
+  const barColor = "#00AEFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate = () => {
     dispatch(editform({ formulaire2, id: forme._id }));
     navigate("/test");
@@ -127,6 +132,16 @@ function Personnel() {
             />
           </div>{" "}
           <br />
+          <div className="container mt-1 progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="prog9">{progress}%</div>
+        </div>
           <div className="btt">
             <button
               type="submit"

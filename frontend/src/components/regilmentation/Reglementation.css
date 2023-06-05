@@ -24,3 +24,12 @@
   .autoro{
     width: 30% !important;
   }
+
+  .progreg{
+    position: absolute;
+ top: 12.5%;
+ margin-left: 4%;
+  transform: translate(-50%, -50%);
+  color: #0d36ec;
+  font-size: 30px;
+  }

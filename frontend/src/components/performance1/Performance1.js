@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editform } from "../../redux/FormSlice/formslice";
 import "./Performance1.css";
+import ProgressBar from "react-customizable-progressbar";
 
 function Performance1() {
   const forme = useSelector((state) => state.form.form);
@@ -20,12 +21,20 @@ function Performance1() {
     per9: "",
  
   });
-  console.log(formulaire2)
+  console.log(formulaire2);
+  const progress = 50;
+  const barColor = "#003CFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate =() => {
    
     dispatch(editform({formulaire2,id:forme._id}))
     navigate("/gestion")
   }
+  const hundelUpdate1 =() => {
+    navigate("/certification");
+  // setPing(!ping);
+  };
 
   return (
     <>
@@ -36,6 +45,16 @@ function Performance1() {
         <h1 className="text-center p-3 bg-primary text-white">
           <b>Norme de performance 1</b>
         </h1>
+        <div className="container progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="prog2">{progress}%</div>
+        </div>
         <h3>
           évaluation et gestion des risques et des impacts environnementaux et
           sociaux
@@ -241,10 +260,20 @@ function Performance1() {
           }
         />
 
+<button
+        type="button"
+        class="btn btn-danger w-20 mt-4 rounded-pill pull-left"
+        onClick={() => {
+          hundelUpdate1();
+        
+        }}
+      >
+        precedent
+      </button>
 
         <button
           type="submit"
-          class="btn btn-success w-100 mt-4 rounded-pill"
+          class="btn btn-success w-20 mt-4 rounded-pill pull-right mb-5"
           onClick={() => {
             hundelUpdate();
           }}

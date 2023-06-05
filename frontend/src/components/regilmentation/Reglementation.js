@@ -3,6 +3,7 @@ import "./Reglementation.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editform } from "../../redux/FormSlice/formslice";
+import ProgressBar from "react-customizable-progressbar";
 
 function Reglementation() {
   const forme = useSelector((state) => state.form.form);
@@ -20,11 +21,20 @@ function Reglementation() {
     
   });
   console.log(formulaire2)
+  const progress = 30;
+  const barColor = "#003CFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate =() => {
    
     dispatch(editform({formulaire2,id:forme._id}))
     navigate("/certification")
   }
+
+  const hundelUpdate1 =() => {
+    navigate("/form3");
+  // setPing(!ping);
+};
  
   return (
     <>
@@ -32,7 +42,16 @@ function Reglementation() {
         <h1 className="text-center p-3 bg-primary text-white head">
           <b> Reglementation Nationale </b>
         </h1>
-
+        <div className="container progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="progreg">{progress}%</div>
+        </div>
         <h4>
           Est-ce que le projet/activité est conforme à la réglementation du pays
           en vigueur sur les aspects environnementaux et sociaux, y compris les
@@ -219,11 +238,20 @@ function Reglementation() {
             setFormulaire({ ...formulaire2, exig8: e.target.value })
           }
         />
-
+         <button
+        type="button"
+        class="btn btn-danger w-20 mt-4 rounded-pill pull-left"
+        onClick={() => {
+          hundelUpdate1();
+        
+        }}
+      >
+        precedent
+      </button>
 
         <button
           type="submit"
-          class="btn btn-success w-100 mt-4 rounded-pill"
+          class="btn btn-success w-20 mt-4 rounded-pill pull-right mb-4"
           onClick={() => {
             hundelUpdate();
           }}

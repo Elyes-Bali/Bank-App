@@ -18,3 +18,11 @@
     padding-top: 15%;
     padding-bottom: 5%;
 }
+.prog10{
+  position: absolute;
+  top: 64.5%;
+  margin-left: 5% !important;
+   transform: translate(-50%, -50%);
+   color: #0d9eec;
+   font-size: 30px;
+}

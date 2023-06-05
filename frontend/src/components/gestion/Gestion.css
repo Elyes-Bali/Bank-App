@@ -25,3 +25,12 @@
 .bod{
   border: 1px solid black;
 }
+
+.prog3{
+  position: absolute;
+  top: 3.9%;
+  margin-left: 4%;
+   transform: translate(-50%, -50%);
+   color: #0d36ec;
+   font-size: 30px;
+}

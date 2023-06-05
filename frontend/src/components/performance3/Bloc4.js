@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { editform } from "../../redux/FormSlice/formslice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Bloc.css";
+import ProgressBar from "react-customizable-progressbar";
 
 const Bloc4 = () => {
   const forme = useSelector((state) => state.form.form);
@@ -19,18 +20,22 @@ const Bloc4 = () => {
     danger8: "",
    
   });
-  console.log(formulaire2)
+  console.log(formulaire2);
+  const progress = 80;
+  const barColor = "#00AEFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate =() => {
    
     dispatch(editform({formulaire2,id:forme._id}));
     if (
-      formulaire2.danger1 === "NON" &&
-      formulaire2.danger2 === "NON" &&
-      formulaire2.danger3 === "NON" &&
-      formulaire2.danger4 === "NON" &&
-      formulaire2.danger5 === "NON" &&
-      formulaire2.danger6 === "NON" &&
-      formulaire2.danger7 === "NON" &&
+      formulaire2.danger1 === "NON" ||
+      formulaire2.danger2 === "NON" ||
+      formulaire2.danger3 === "NON" ||
+      formulaire2.danger4 === "NON" ||
+      formulaire2.danger5 === "NON" ||
+      formulaire2.danger6 === "NON" ||
+      formulaire2.danger7 === "NON" ||
       formulaire2.danger8 === "NON" 
     ) {
       navigate("/bloc5");
@@ -39,6 +44,11 @@ const Bloc4 = () => {
     }
    
   }
+
+  const hundelUpdate1 =() => {
+    navigate("/bloc3");
+  // setPing(!ping);
+  };
   return (
     <div>
       <div className="devide">
@@ -330,7 +340,26 @@ const Bloc4 = () => {
               </tbody>
             </table>
           </div>
+          <div className="container mt-1 progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="prog7">{progress}%</div>
+        </div>
           <div className="btt">
+          <button
+              type="submit"
+              className="mt-2 mb-5 mr-2 btn btn-danger"
+              onClick={() => {
+                hundelUpdate1();
+              }}
+            >
+              precedent
+            </button>
             <button type="submit" className="mt-2 mb-5 btn btn-success" onClick={() => {
             hundelUpdate();
           }}>

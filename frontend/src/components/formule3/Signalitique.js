@@ -3,6 +3,7 @@ import "./Signalitique.css";
 import React, { useState } from "react";
 import { editform } from "../../redux/FormSlice/formslice";
 import { useNavigate } from "react-router-dom";
+import ProgressBar from "react-customizable-progressbar";
 
 function Signaletique() {
   const forme = useSelector((state) => state.form.form);
@@ -23,12 +24,20 @@ function Signaletique() {
     grille12: "",
     grille13: "",
   });
-  console.log(formulaire2)
-  const hundelUpdate =() => {
-   
-    dispatch(editform({formulaire2,id:forme._id}))
-    navigate("/regle")
-  }
+  console.log(formulaire2);
+  const progress = 20;
+  const barColor = "#003CFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
+
+  const hundelUpdate = () => {
+    dispatch(editform({ formulaire2, id: forme._id }));
+    navigate("/regle");
+  };
+  const hundelUpdate1 =() => {
+    navigate("/form2");
+  // setPing(!ping);
+};
 
   return (
     <>
@@ -39,6 +48,16 @@ function Signaletique() {
         <h1 className="text-center p-3 bg-primary text-white head">
           <b>Signaletique du Projet</b>
         </h1>
+        <div className="container progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="progress-value">{progress}%</div>
+        </div>
         <legend>
           <li> Nom ou Raison Sociale du projet </li>
         </legend>
@@ -117,13 +136,15 @@ function Signaletique() {
         </fieldset>
         <br />
         <legend>
-          <li>Description de la zone d'implantation du projet </li> 
+          <li>Description de la zone d'implantation du projet </li>
         </legend>
         <br />
-        <select className="form-control zone"
-            onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille5: e.target.value })
-            }>
+        <select
+          className="form-control zone"
+          onChange={(e) =>
+            setFormulaire({ ...formulaire2, grille5: e.target.value })
+          }
+        >
           <option>--SELECTER ⬇️--</option>
           <option value="zone urbaine">zone urbaine</option>
           <option value="zone péri-urbaine">zone péri-urbaine</option>
@@ -142,15 +163,25 @@ function Signaletique() {
                 </legend>
               </label>
               <br />
-              <div className="option" >
-                <input type="radio" name="theme" value="OUI"
-            onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille6: e.target.value })
-            } /> OUI &nbsp;
-                <input type="radio" name="theme" value="NON"
-            onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille6: e.target.value })
-            } /> NON
+              <div className="option">
+                <input
+                  type="radio"
+                  name="theme"
+                  value="OUI"
+                  onChange={(e) =>
+                    setFormulaire({ ...formulaire2, grille6: e.target.value })
+                  }
+                />{" "}
+                OUI &nbsp;
+                <input
+                  type="radio"
+                  name="theme"
+                  value="NON"
+                  onChange={(e) =>
+                    setFormulaire({ ...formulaire2, grille6: e.target.value })
+                  }
+                />{" "}
+                NON
               </div>
               <br />
               <br />
@@ -171,8 +202,9 @@ function Signaletique() {
                 required
                 placeholder="taper le nom et postition"
                 value={formulaire2?.grille7}
-            onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille7: e.target.value })}
+                onChange={(e) =>
+                  setFormulaire({ ...formulaire2, grille7: e.target.value })
+                }
               />
               <br />
             </td>
@@ -185,8 +217,14 @@ function Signaletique() {
         </legend>
 
         <label htmlFor="date" className="dat"></label>
-        <input type="date" name="anniversaire" className="input-holder form-control bordering"  onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille8: e.target.value })} />
+        <input
+          type="date"
+          name="anniversaire"
+          className="input-holder form-control bordering"
+          onChange={(e) =>
+            setFormulaire({ ...formulaire2, grille8: e.target.value })
+          }
+        />
         <br />
         <br />
         <legend>
@@ -206,7 +244,8 @@ function Signaletique() {
           required
           placeholder="taper la superficie totale"
           onChange={(e) =>
-            setFormulaire({ ...formulaire2, grille9: e.target.value })}
+            setFormulaire({ ...formulaire2, grille9: e.target.value })
+          }
         />
         <br />
         <br />
@@ -223,7 +262,8 @@ function Signaletique() {
           required
           placeholder="taper la superficie couverte"
           onChange={(e) =>
-            setFormulaire({ ...formulaire2, grille10: e.target.value })}
+            setFormulaire({ ...formulaire2, grille10: e.target.value })
+          }
         />
         <br />
         <br />
@@ -231,15 +271,35 @@ function Signaletique() {
           <li>Type de projet </li>
         </legend>
         <div className="type">
-          <input type="radio" name="theme" value="Modernisation/mise à niveau"  onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille11: e.target.value })}/> Modernisation/mise à
-          niveau
+          <input
+            type="radio"
+            name="theme"
+            value="Modernisation/mise à niveau"
+            onChange={(e) =>
+              setFormulaire({ ...formulaire2, grille11: e.target.value })
+            }
+          />{" "}
+          Modernisation/mise à niveau
           <br />
-          <input type="radio" name="theme" value="Extension"  onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille11: e.target.value })}/> Extension
+          <input
+            type="radio"
+            name="theme"
+            value="Extension"
+            onChange={(e) =>
+              setFormulaire({ ...formulaire2, grille11: e.target.value })
+            }
+          />{" "}
+          Extension
           <br />
-          <input type="radio" name="theme" value="Nouveau projet"  onChange={(e) =>
-              setFormulaire({ ...formulaire2, grille11: e.target.value })}/> Nouveau projet
+          <input
+            type="radio"
+            name="theme"
+            value="Nouveau projet"
+            onChange={(e) =>
+              setFormulaire({ ...formulaire2, grille11: e.target.value })
+            }
+          />{" "}
+          Nouveau projet
         </div>
 
         <legend>
@@ -258,12 +318,13 @@ function Signaletique() {
           required
           placeholder="taper le secteur du projet"
           onChange={(e) =>
-            setFormulaire({ ...formulaire2, grille12: e.target.value })}
+            setFormulaire({ ...formulaire2, grille12: e.target.value })
+          }
         />
 
         <br />
         <br />
- <legend>
+        <legend>
           <li>plus d'infos ? </li>
         </legend>
         <br />
@@ -279,13 +340,23 @@ function Signaletique() {
           required
           placeholder="plus d'infos ?"
           onChange={(e) =>
-            setFormulaire({ ...formulaire2, grille13: e.target.value })}
+            setFormulaire({ ...formulaire2, grille13: e.target.value })
+          }
         />
-
+         <button
+        type="button"
+        class="btn btn-danger w-20 mt-4 rounded-pill pull-left"
+        onClick={() => {
+          hundelUpdate1();
+        
+        }}
+      >
+        precedent
+      </button>
 
         <button
           type="submit"
-          class="btn btn-success w-100 mt-4 rounded-pill"
+          class="btn btn-success w-20 mt-4 rounded-pill pull-right mb-4"
           onClick={() => {
             hundelUpdate();
           }}

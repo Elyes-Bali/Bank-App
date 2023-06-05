@@ -10,10 +10,12 @@ const formulaireSchema = new mongoose.Schema({
   },
   authcateg: {
     type: String,
+    default:"x"
   },
 
   annex1: {
     type: String,
+    
   },
   annex2: {
     type: String,

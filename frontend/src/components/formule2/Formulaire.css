@@ -5,3 +5,8 @@
     display: flex;
     justify-content: center;
 }
+.diraction{
+    display: flex;
+    
+    justify-content: space-between;
+}

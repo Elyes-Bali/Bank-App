@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import ProgressBar from "react-customizable-progressbar";
 import Swal from "sweetalert2";
 import "./Formulaire.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,7 +38,11 @@ const Formulaire2 = () => {
   });
 
   const navigate = useNavigate();
- 
+  const progress = 10;
+  const barColor = "#003CFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
+
   const hundelUpdate1 = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -99,11 +103,24 @@ const Formulaire2 = () => {
       }
     });
   };
-  
+  const hundelUpdate =() => {
+    navigate("/form1");
+  // setPing(!ping);
+};
 
   return (
     <div className="shadow p-3 mb-5 bg-body rounded mt-5" id="certification">
       <h3 className="text-center p-3 bg-primary text-white">Categorisation</h3>
+      <div className="container progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="progress-value">{progress}%</div>
+        </div>
       <table class="table tdd">
         <thead class="thead-dark">
           <tr>
@@ -114,6 +131,7 @@ const Formulaire2 = () => {
             <th scope="col">Réponse</th>
           </tr>
         </thead>
+        
         <tbody className="sizing">
           <tr>
             <td></td>
@@ -1014,19 +1032,27 @@ const Formulaire2 = () => {
           </tr>
         </tbody>
       </table>
+      <div className="diraction">
+      <button
+        type="button"
+        class="btn btn-danger w-40 mt-4 rounded-pill"
+        onClick={() => {
+          hundelUpdate();
+        
+        }}
+      >
+        precedent
+      </button>
       <button
         type="submit"
-        class="btn btn-success w-100 mt-4 rounded-pill"
-        onClick={() => {
-          // check();
+        class="btn btn-success w-40  mt-4 rounded-pill"
+        onClick={() => {        
           hundelUpdate1();
-         
-          // check();
-        
         }}
       >
         Suivant
       </button>
+      </div>
     </div>
   );
 };

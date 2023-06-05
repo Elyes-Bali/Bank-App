@@ -3,6 +3,7 @@ import "./Certification.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editform } from "../../redux/FormSlice/formslice";
+import ProgressBar from "react-customizable-progressbar";
 
 function Certification() {
   const forme = useSelector((state) => state.form.form);
@@ -21,11 +22,20 @@ function Certification() {
     exig18: "",
   });
   console.log(formulaire2)
+  const progress = 40;
+  const barColor = "#003CFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate =() => {
    
     dispatch(editform({formulaire2,id:forme._id}))
     navigate("/per1")
   }
+
+  const hundelUpdate1 =() => {
+    navigate("/regle");
+  // setPing(!ping);
+};
 
   return (
     <>
@@ -33,7 +43,16 @@ function Certification() {
         <h1 className="text-center p-3 bg-primary text-white head">
           <b> Certificat et Autorisation</b>
         </h1>
-
+        <div className="container progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="prog1">{progress}%</div>
+        </div>
         <div>
           <div>
             <tr>
@@ -233,10 +252,19 @@ function Certification() {
         </div>
         <br />
         <br />
-       
+        <button
+        type="button"
+        class="btn btn-danger w-20 mt-4 rounded-pill pull-left"
+        onClick={() => {
+          hundelUpdate1();
+        
+        }}
+      >
+        precedent
+      </button>
         <button
           type="submit"
-          class="btn btn-success w-100 mt-4 rounded-pill"
+          class="btn btn-success w-20 mt-4 rounded-pill pull-right mb-4"
           onClick={() => {
             hundelUpdate();
           }}

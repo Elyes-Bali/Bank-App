@@ -24,6 +24,12 @@ const SideBar = () => {
                 <span className="list-item-text">DATA</span>
               </a>
             </li>
+            <li className="list-item">
+              <a href="/quest" className="nav-link">
+                <i className="list-item-icon fas fa-plus" />
+                <span className="list-item-text">Ajouter Question</span>
+              </a>
+            </li>
 
           </ul>
         </div>

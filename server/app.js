@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/user", require ('./routes/User'))
 app.use("/api/formulaire", require ('./routes/Formule'))
+app.use("/api/question", require ('./routes/Questions'))
 app.use("/api/message", require('./routes/Message'))
 app.use("/api/sendemail", require('./routes/RouteMessage'))
 

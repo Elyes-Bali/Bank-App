@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { editform } from "../../redux/FormSlice/formslice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Bloc.css";
+import ProgressBar from "react-customizable-progressbar";
 
 const Bloc1 = () => {
   const forme = useSelector((state) => state.form.form);
@@ -15,13 +16,17 @@ const Bloc1 = () => {
     liquide4: "",
   });
   console.log(formulaire2);
+  const progress = 65;
+  const barColor = "#00AEFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate = () => {
     dispatch(editform({ formulaire2, id: forme._id }));
 
     if (
-      formulaire2.liquide1 === "NON" &&
-      formulaire2.liquide2 === "NON" &&
-      formulaire2.liquide3 === "NON" &&
+      formulaire2.liquide1 === "NON" ||
+      formulaire2.liquide2 === "NON" ||
+      formulaire2.liquide3 === "NON" ||
       formulaire2.liquide4 === "NON"
     ) {
       navigate("/bloc2");
@@ -30,6 +35,10 @@ const Bloc1 = () => {
     }
   };
 
+  const hundelUpdate1 =() => {
+    navigate("/gestion");
+  // setPing(!ping);
+  };
   return (
     <div>
       <div className="devide">
@@ -41,6 +50,7 @@ const Bloc1 = () => {
           <h1 className="serv">
             <strong> Bloc 1: Gestion des déchets liquides</strong>
           </h1>
+          
         </div>
         <section>
           <div className="blocs container">
@@ -241,7 +251,26 @@ const Bloc1 = () => {
               </tbody>
             </table>
           </div>
+          <div className="container mt-1 progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="prog4">{progress}%</div>
+        </div>
           <div className="btt">
+          <button
+              type="submit"
+              className="mt-2 mb-5 mr-2 btn btn-danger"
+              onClick={() => {
+                hundelUpdate1();
+              }}
+            >
+              precedent
+            </button>
             <button
               type="submit"
               className="mt-2 mb-5 btn btn-success"

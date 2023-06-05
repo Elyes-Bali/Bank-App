@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import "./Gestion.css";
 // import Button from "react-bootstrap/Button";
-// import Modal from "react-bootstrap/Modal";
+import ProgressBar from "react-customizable-progressbar";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editform } from "../../redux/FormSlice/formslice";
@@ -36,12 +36,21 @@ function Gestion() {
     hum22:"",
    
   });
-  console.log(formulaire2)
+  console.log(formulaire2);
+  const progress = 60;
+  const barColor = "#003CFF";
+  const strokeWidth = 20;
+  const trailWidth = 5;
   const hundelUpdate =() => {
    
     dispatch(editform({formulaire2,id:forme._id}))
     navigate("/bloc1")
   }
+
+  const hundelUpdate1 =() => {
+    navigate("/per1");
+  // setPing(!ping);
+  };
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
@@ -53,6 +62,16 @@ function Gestion() {
         <h1 className="text-center p-3 bg-primary text-white">
           <b> Norme de Performance 2 </b>
         </h1>
+        <div className="container progr">
+          <ProgressBar
+            progress={progress}
+            radius={50}
+            strokeColor={barColor}
+            strokeWidth={strokeWidth}
+            trailWidth={trailWidth}
+          />
+          <div className="prog3">{progress}%</div>
+        </div>
         <br />
         <h4>
           <b>Organisation du travail :</b>
@@ -494,8 +513,18 @@ function Gestion() {
           <br />
         </div>
         <button
+        type="button"
+        class="btn btn-danger w-20  rounded-pill pull-left"
+        onClick={() => {
+          hundelUpdate1();
+        
+        }}
+      >
+        precedent
+      </button>
+        <button
           type="submit"
-          class="btn btn-success w-100 mt-4 rounded-pill"
+          class="btn btn-success w-20  rounded-pill pull-right mb-5"
           onClick={() => {
             hundelUpdate();
           }}

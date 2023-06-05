@@ -6,6 +6,8 @@ import "./Dash.css";
 import SideBar from "./SideBar";
 import { useSelector } from "react-redux";
 
+
+
 const Dashboard = () => {
   const forme = useSelector((state) => state.form.allforms);
 
@@ -38,10 +40,9 @@ const Dashboard = () => {
                   </div>
                   {/* modification here */}
 
-                  <div className="card-body p-0">
-                    <div className="table-responsive">
-                      <table className="table tdd" id="table-to-xls">
-                        <thead className="">
+                <div className="card-body">
+                      <table className="table tdd" id="table-to-xls" border="2">
+                        <thead >
                           <tr>
                             <th>Nom</th>
                             <th>Email</th>
@@ -50,52 +51,27 @@ const Dashboard = () => {
                             <th>Compte courant</th>
                           </tr>
                         </thead>
-                        <tbody className="">
-                          {forme?.map((el) => (
-                            <tr>
-                              <td>{el.nom}</td>
+                        <tbody >
+                          {forme?.filter((e)=>e.authcateg !=="x").map((el,index) => (
+                            <tr key={index}>
+                              <td>{el?.nom}</td>
                               <td>
-                                <Badge bg="success">{el.coureil}</Badge>
+                                <Badge bg="success">{el?.coureil}</Badge>
                               </td>
-                              <td>
-                                <div
-                                  className="sparkbar"
-                                  data-color="#00a65a"
-                                  data-height={20}
-                                >
-                                  {el.telephone}
-                                </div>
-                              </td>
-                              <td>
-                                <div
-                                  className="sparkbar"
-                                  data-color="#00a65a"
-                                  data-height={20}
-                                >
-                                  {el.authcateg}
-                                </div>
-                              </td>
-                              <td>
-                                <div
-                                  className="sparkbar "
-                                  data-color="#00a65a"
-                                  data-height={20}
-                                >
-                                  {el.compte}
-                                </div>
-                              </td>
+                              <td>{el?.telephone}</td>
+                              <td>{el?.authcateg}</td>
+                              <td>{el?.compte}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                    </div>
-                  </div>
+                   
 
                   {/* finish here */}
-                  <div className="card-footer clearfix">
+                  <div className=" clearfix mt-3 pull-right">
                     <ReactHTMLTableToExcel
                       id="test-table-xls-button"
-                      className="download-table-xls-button btn btn-success mb-3"
+                      className="download-table-xls-button btn btn-success "
                       table="table-to-xls"
                       filename="tablexls"
                       sheet="tablexls"
@@ -103,9 +79,10 @@ const Dashboard = () => {
                     />
                   </div>
                 </div>
+                <div className="card-footer"></div>
+              </div>
               </div>
 
-              <div className="col-md-4"></div>
             </div>
           </div>
         </section>

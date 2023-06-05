@@ -43,7 +43,10 @@ const Formulaire = ({ ping, setPing }) => {
     // setPing(!ping);
   };
   console.log(formulaire1);
-
+  const hundelUpdate =() => {
+      navigate("/bloc1");
+    // setPing(!ping);
+  };
 
 
 
@@ -80,6 +83,7 @@ const Formulaire = ({ ping, setPing }) => {
                 type="radio"
                 value="NON"
                 name="annex1"
+                
                 checked={formulaire1.annex1 === "NON"}
                 onChange={(e) =>
                   setUser({
@@ -93,6 +97,7 @@ const Formulaire = ({ ping, setPing }) => {
                 type="radio"
                 value="OUI"
                 name="annex1"
+               
                 checked={formulaire1.annex1 === "OUI"}
                 onChange={(e) =>
                   setUser({
@@ -452,6 +457,7 @@ const Formulaire = ({ ping, setPing }) => {
           </tr>
         </tbody>
       </table>
+      
       <button
         type="button"
         class="btn btn-success w-100 mt-4 rounded-pill"
@@ -462,6 +468,7 @@ const Formulaire = ({ ping, setPing }) => {
       >
         SUIVANT
       </button>
+     
     </div>
   );
 };

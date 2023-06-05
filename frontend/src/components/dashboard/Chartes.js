@@ -128,7 +128,7 @@ const Chartes = () => {
       },
       title: {
         display: true,
-        text: "Nombre des Formulaires",
+        text: `Nombre des Formulaires (${forme?.length})` ,
       },
     },
   };
@@ -141,7 +141,7 @@ const Chartes = () => {
       },
       title: {
         display: true,
-        text: "Les Catégories",
+        text: "Les Catégories (5)",
       },
     },
   };
